@@ -1,5 +1,9 @@
 # KUKA-KR4-R600
 Project for school work utilizing the KUKA_KR4_R600 robotic arm.
+ 
+Set-up instructions for RSI can be found here:
+1. kuka_rsi_hw_interface/include/kuka_rsi_hw_interface/KRC4 
+2. kuka_rsi_hw_interface/include/kuka_rsi_hw_interface/KRC2
 
 ## Features:
 1. Utilizing ROS + RSI(Robotic_Sensor_Interface)
