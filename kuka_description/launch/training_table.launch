@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+<!--KUKA KR 4 parameters files -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find kuka_description)/urdf/training_table.urdf.xacro'" />
+
+</launch>

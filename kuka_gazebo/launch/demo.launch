@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="paused" default="false"/>
+  <arg name="gui" default="true"/>
+  <!-- <arg name="use_gui" default="false"/> -->
+  <arg name="rviz" default="true"/>
+  <arg name="rviz_conf" default="$(find kuka_description)/config/rviz/kuka_world.rviz"/>
+
+
+  <!-- Launch gazebo empty world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="worlds/empty.world"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="gui" value="$(arg gui)"/>
+  </include>
+
+  <!-- load URDF -->
+  <include file="$(find kuka_description)/launch/training_table.launch"/>
+
+  <!-- spawn gazebo model -->
+  <node name="kr4r600_loader" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model kuka_kr4r600" output="screen" />
+
+  <!--Load Rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rviz_conf)" if="$(arg rviz)"/>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen"/> 
+
+  <include file="$(find kuka_description)/launch/joint_position_control.launch"/>
+
+</launch>

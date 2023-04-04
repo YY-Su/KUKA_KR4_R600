@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>kuka_description</name>
+  <version>0.0.0</version>
+  <description>The kuka_description package</description>
+
+  <maintainer email="aioikono@pme.duth.gr"> Katerina Oikonomou</maintainer>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>kuka_kr4_support</depend>
+  
+  <build_depend>moveit_kinematics</build_depend>
+  <build_depend>roscpp</build_depend>
+  
+  <build_export_depend>moveit_kinematics</build_export_depend>
+  <build_export_depend>roscpp</build_export_depend>
+  
+  <exec_depend>moveit_kinematics</exec_depend>
+  <exec_depend>roscpp</exec_depend>
+
+  <build_depend>pluginlib</build_depend>
+  <build_depend>eigen</build_depend>
+  <build_depend>moveit_core</build_depend>
+  <build_depend>moveit_ros_planning</build_depend>
+  <build_depend>moveit_ros_planning_interface</build_depend>
+  <build_depend>moveit_ros_perception</build_depend>
+  <build_depend>interactive_markers</build_depend>
+  <build_depend>geometric_shapes</build_depend>
+  <build_depend>moveit_visual_tools</build_depend>
+  <build_depend>pcl_ros</build_depend>
+  <build_depend>pcl_conversions</build_depend>
+  <build_depend>rosbag</build_depend>
+  <build_depend>tf2_ros</build_depend>
+  <build_depend>tf2_eigen</build_depend>
+  <build_depend>tf2_geometry_msgs</build_depend>
+  <build_depend>interactivity</build_depend>
+
+  <exec_depend>interactivity</exec_depend>
+  <exec_depend>panda_moveit_config</exec_depend>
+  <exec_depend>pluginlib</exec_depend>
+  <exec_depend>moveit_core</exec_depend>
+  <exec_depend>moveit_commander</exec_depend>
+  <exec_depend>moveit_fake_controller_manager</exec_depend>
+  <exec_depend>moveit_ros_planning_interface</exec_depend>
+  <exec_depend>moveit_ros_perception</exec_depend>
+  <exec_depend>interactive_markers</exec_depend>
+  <exec_depend>moveit_visual_tools</exec_depend>
+  <exec_depend>joy</exec_depend>
+  <exec_depend>pcl_ros</exec_depend>
+  <exec_depend>pcl_conversions</exec_depend>
+  <exec_depend>rosbag</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>tf2_eigen</exec_depend>
+  <exec_depend>tf2_geometry_msgs</exec_depend>
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>

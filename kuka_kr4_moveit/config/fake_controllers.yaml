@@ -1,0 +1,18 @@
+controller_list:
+  - name: fake_kuka_arm_controller
+    type: $(arg execution_type)
+    joints:
+      - joint_a1
+      - joint_a2
+      - joint_a3
+      - joint_a4
+      - joint_a5
+      - joint_a6
+  - name: fake_hand_controller
+    type: $(arg execution_type)
+    joints:
+      - left_gripper_finger_joint
+      - right_gripper_finger_joint
+initial:  # Define initial robot poses.
+  - group: kuka_arm
+    pose: home

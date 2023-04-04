@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!-- <robot name="kuka_kr4r600" xmlns:xacro="http://wiki.ros.org/xacro"> -->
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="kuka_kr4r600" >
+
+  <!-- <xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface"/> -->
+
+  <!-- <xacro:include filename="$(find kuka_description)/urdf/common.gazebo.xacro" /> -->
+
+
+  <!-- kuka_kr4r600 robot arm -->
+  <xacro:include filename="$(find kuka_description)/urdf/kuka_kr4r600_macro.xacro"/>
+<!-- legal values:
+     - hardware_interface/PositionJointInterface
+     - hardware_interface/VelocityJointInterface
+     - hardware_interface/EffortJointInterface
+-->
+
+  <xacro:kuka_kr4r600_gazebo prefix="" />
+
+
+  <link name="world" />
+  <xacro:include filename="$(find kuka_description)/urdf/table.urdf.xacro"/>
+
+<!-- attach the table to the world-->
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link = "base_link" />
+    <origin xyz="0.0 0.0 0.8" rpy="0.0 0.0 0.0" />
+  </joint>
+
+<!-- attach the robot to the table -->
+  <joint name="table_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="table_top_link"/>
+    <origin xyz="0 0.0 -0.8" rpy="0 0 0" />
+  </joint>
+
+<!--Add box to the table-->
+  <link name="box_link">
+    <visual>
+      <geometry>
+        <box size="0.10 0.10 0.10"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz ="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.10 0.10 0.10"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="box_link">
+    <material>Gazebo/Red</material>
+    <mu1>50.0</mu1>
+    <mu2>50.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+
+  <!-- attach the box to the table-->
+  <joint name="box_joint" type="fixed">
+    <parent link="base_link" />
+    <child link = "box_link" />
+    <origin xyz="0.5 0.0 0.05" rpy="0.0 0.0 0.0" />
+  </joint>
+
+</robot>

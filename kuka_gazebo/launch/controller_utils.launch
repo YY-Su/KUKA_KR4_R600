@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="use_gui" default="true"/>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find kuka_kr4_moveit)/config/position_controllers.yaml" command="load"/>
+
+
+<!-- POSITION CONTROLLERS ARE IN RANDS. CONVERT TO DEGREES FOR SETTING POSITION AT PUB -->
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/kuka_kr4r600" args="joint_a1_position_controller joint_a2_position_controller joint_a3_position_controller joint_a4_position_controller joint_a5_position_controller joint_a6_position_controller joint_state_controller "/>
+
+  <!-- <param name="use_gui" value="${arg gui}"/> -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <rosparam param="source_list">["kuka_kr4r600/joint_states"]</rosparam>
+  </node>
+  
+<!--   <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui">
+    <rosparam param="source_list">["kuka_kr4r600/joint_states"]</rosparam>
+  </node>
+   -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" respawn="true" output="screen"> 
+    <!-- <remap from="/joint_states" to="joint_states" /> -->
+  </node>
+
+
+</launch>
