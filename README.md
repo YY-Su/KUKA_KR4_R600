@@ -1,13 +1,13 @@
 # KUKA-KR4-R600
 Project for school work utilizing the KUKA_KR4_R600 robotic arm.
- 
+
 Set-up instructions for RSI can be found here:
-1. kuka_rsi_hw_interface/include/kuka_rsi_hw_interface/KRC4 
-2. kuka_rsi_hw_interface/include/kuka_rsi_hw_interface/KRC2
+* kuka_rsi_hw_interface/include/kuka_rsi_hw_interface/KRC4 
+* kuka_rsi_hw_interface/include/kuka_rsi_hw_interface/KRC2
 
 ## Features:
-1. Utilizing ROS + RSI(Robotic_Sensor_Interface)
-2. Basic Point to Point motion
+* Utilizing ROS + RSI(Robotic_Sensor_Interface)
+* Basic Point to Point motion
 
 ## Instructions to move robot
 
@@ -19,6 +19,8 @@ Set-up instructions for RSI can be found here:
 echo # KUKA_KR4_R600
 
 
-## Credits: 
-Majority of packages were forked from KUKA_EXPERIMENTAL
-https://github.com/ros-industrial/kuka_experimental
+![](https://github.com/YY-Su/KUKA_KR4_R600/blob/main/kuka.gif)
+
+## Reference: 
+Majority of packages were taken from KUKA_EXPERIMENTAL  
+* https://github.com/ros-industrial/kuka_experimental
